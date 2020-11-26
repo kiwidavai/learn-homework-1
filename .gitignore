@@ -121,3 +121,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+#Kovgan update
+Test_count.py
+Test_homework.py

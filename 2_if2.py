@@ -14,13 +14,21 @@
   и выводя на экран результаты
 
 """
-
-def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+a,b = None, None
+def main(a,b):
+    a, b = input('Enter first row: '), input("Enter second row: ")
+    if type(a) is str and type(b) is str and a == b:
+        return '1'
+    elif type(a) is str and type(b) and a != b and len(a) > len(b):
+        return '2'
+    elif type(a) is str and type(b) and a != b and b == 'learn':
+        return '3'
+    else:
+        return '0'
     
 if __name__ == "__main__":
-    main()
+    print(main(a, b))
+    print(main(a, b))
+    print(main(a, b))
+    print(main(a, b))
+    print(main(a, b))
