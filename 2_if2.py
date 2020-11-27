@@ -28,7 +28,3 @@ def main(a,b):
     
 if __name__ == "__main__":
     print(main(a, b))
-    print(main(a, b))
-    print(main(a, b))
-    print(main(a, b))
-    print(main(a, b))

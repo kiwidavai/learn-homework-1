@@ -16,13 +16,12 @@
 
 age = int(input('Enter your age: '))
 
-
-def main():
+def main(age):
     if 0 < age < 6:
         return('kindergarden')
-    elif 6 <= age <= 17:
+    elif age <= 17:
         return('school')
-    elif 18 <= age < 23:
+    elif age < 23:
         return('university')
     elif age <= 0:
         return("u're trying to trick me")
@@ -32,7 +31,4 @@ def main():
         return('you must work')
     
 if __name__ == "__main__":
-    you_life = main()
-
-print(you_life)
-
+    print(main(age))
