@@ -40,16 +40,34 @@ def greet_user(update, context):
 def talk_to_me(update, context):
     user_text = update.message.text
     print(user_text)
-    update.message.reply_text(text)
+    update.message.reply_text(user_text)
 
-def planet(user_text):
-    update.message.reply_text('')
+def planet(update,context):
+    supinfo = {
+        "Mars": ephem.Mars(), 'Neptune' : ephem.Neptune(),
+        'Mercury' : ephem.Mercury(), 'Venus' : ephem.Venus(), 
+        'Jupiter' : ephem.Jupiter(), 'Moon' : ephem.Moon(),
+        'Saturn' : ephem.Saturn(), 'Uranus' : ephem.Uranus(), 
+        'Pluto' : ephem.Pluto(), 'Sun' : ephem.Sun(),  
+    }
+    user_text = update.message.text
+    user_text_planet = user_text.split(' ')
+    print(user_text_planet[1])
+    name_planet = user_text_planet[1]
+    planet = supinfo.get(name_planet)
+    planet.compute('2019/01/01')
+    update.message.reply_text(planet.ra)
+    print(ephem.constellation(planet))
+    update.message.reply_text(ephem.constellation(planet))
+   
+    
 
 def main():
     mybot = Updater("1487495874:AAEAwJ96Kr2hsCSqi7JLgTjX6CbpjdCgK6k", request_kwargs=PROXY, use_context=True)
 
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler("start", greet_user))
+    dp.add_handler(CommandHandler("planet", planet))
     dp.add_handler(MessageHandler(Filters.text, talk_to_me))
 
     mybot.start_polling()
