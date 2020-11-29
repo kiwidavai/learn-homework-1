@@ -61,6 +61,8 @@ def planet(update,context):
     update.message.reply_text(ephem.constellation(planet))
    
     
+# def  word_count():
+
 
 def main():
     mybot = Updater("1487495874:AAEAwJ96Kr2hsCSqi7JLgTjX6CbpjdCgK6k", request_kwargs=PROXY, use_context=True)
@@ -68,7 +70,9 @@ def main():
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler("start", greet_user))
     dp.add_handler(CommandHandler("planet", planet))
+    # dp.add_handler(CommandHandler('wordcount'))
     dp.add_handler(MessageHandler(Filters.text, talk_to_me))
+
 
     mybot.start_polling()
     mybot.idle()
